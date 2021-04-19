@@ -6,39 +6,45 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem'
 import Footer from '../components/Footer'
 import'../assets/styles/App.scss';
-import Carrousel from '../components/Carousel';
+import useInitialState from '../hooks/useInitialState';
+
+const API = 'http://localhost:3000/initialState'
 
 const App = () => {
-  return (
+  const initialState = useInitialState(API);
+  return initialState.length === 0 ? <h1>Loading...</h1> :  (
     <div className='App'>
       <Header />
       <Search />
-
-      <Categories title="Mi Lista">
+      {
+        initialState.mylist.length > 0 && (
+        <Categories title="Mi Lista">
           <Carousel>
-              <CarouselItem />
-              <CarouselItem />
-              <CarouselItem />
+            {
+              initialState.mylist.map(item => <CarouselItem key={item.id} {...item} /> )
+          }
           </Carousel>
-      </Categories> 
-
+        </Categories> 
+        )}
+      
       <Categories title="Tendencias">
-          <Carousel>
-              <CarouselItem />
-              <CarouselItem />
-              <CarouselItem />
-          </Carousel>
+        <Carousel>
+          {
+              initialState.trends.map(item => <CarouselItem key={item.id} {...item} /> )
+            }
+              
+        </Carousel>
       </Categories>
-
+      
       <Categories title="originales de PlatziVideo">
-          <Carousel>
-              <CarouselItem />
-              <CarouselItem />
-              <CarouselItem />
-          </Carousel>
+        <Carousel>
+          {
+              initialState.originals.map(item => <CarouselItem key={item.id} {...item} /> )
+          }
+        </Carousel>
       </Categories>
-
-      <Footer />    
+      <Footer />  
+        
     </div>
   );
 };
