@@ -1,9 +1,9 @@
 {
+"homepage": "https://manurt-dr.github.io/curso-react",
  "name": "react-base",
  "version": "1.0.0",
  "description": "React Base",
  "main": "index.js",
- "homepage": "https://manurt-dr.github.io/curso-react",
  "scripts": {
   "build": "webpack --mode production",
   "start": "webpack-dev-server --open --mode development",
