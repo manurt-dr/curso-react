@@ -5,10 +5,11 @@
  "description": "React Base",
  "main": "index.js",
  "scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "build": "webpack --mode production",
   "start": "webpack-dev-server --open --mode development",
   "lint": "eslint src/ --fix",
-  "deploy": "gh-pages -b feature -d build",
   "eject": "react-scripts eject"
  },
  "keywords": [
