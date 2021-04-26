@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { createStore, compose } from 'redux';  
 import App from './routes/App';
 import reducer from './reducers/index';
-import { createStore, compose } from 'redux';  
 
 const initialState = {
         "user": {},

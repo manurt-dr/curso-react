@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import gravatar from '../utils/gravatar';
 import classNames from 'classnames';
+import gravatar from '../utils/gravatar';
 import {logOutRequest} from '../actions/index';
 import '../assets/styles/components/Header.scss';
 import {Link} from 'react-router-dom';
-import logo from '../assets/static/logo-platzi-video-BW2.png';
+import logo from '../assets/static/dragon-para-logo.png';
 import userIcon from  '../assets/static/user-icon.png';
 
 const Header = (props) => {
@@ -30,8 +30,8 @@ return(
       <div className="header__menu--profile">
         {
           hasUser ? 
-          <img src={gravatar(user.email)} alt={user.email}/> :
-          <img src={userIcon} alt="" />
+            <img src={gravatar(user.email)} alt={user.email} /> :
+            <img src={userIcon} alt="" />
         }
 
         <p>Perfil</p>
@@ -46,16 +46,14 @@ return(
         }
 
         {hasUser ? 
-        <li><a href="#logout" onClick={handleLogout}>Cerrar Sesión</a></li>
-        :
+          <li><a href="#logout" onClick={handleLogout}>Cerrar Sesión</a></li>
+        : (
           <li>
             <Link to="/login">
               Iniciar sesión
             </Link>
           </li>
-
-
-        }
+        )}
 
       </ul>
     </div>
