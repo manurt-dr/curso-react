@@ -1,13 +1,17 @@
+@import "../Vars.scss";
 .footer {
     align-items: center;
     background-color: #8f57fd;
-    display: flex;
+    display: flex; 
     height: 100px;
     width: 100%;
   }
+.isHome {
+    background-color: $main-color!important;
+  }
   
   .footer a {
-    color: white;
+    color: $black;
     cursor: pointer;
     font-size: 14px;
     padding-left: 30px;

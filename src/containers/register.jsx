@@ -4,6 +4,7 @@ import {registerRequest} from '../actions';
 import '../assets/styles/components/Register.scss';
 import {Link} from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 const register = props => {
@@ -61,6 +62,7 @@ const register = props => {
             </Link>
           </section>
         </section>
+        <Footer />
         </>
     )
 }

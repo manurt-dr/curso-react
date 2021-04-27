@@ -9,7 +9,7 @@ import Layout from '../components/Layout';
 
 const App = () =>  {
    return( 
-     <BrowserRouter>
+     <BrowserRouter basename={process.env.PUBLIC_URL}>
        <Layout>
          <Switch>
            <Route exact path="/" component={Home} />

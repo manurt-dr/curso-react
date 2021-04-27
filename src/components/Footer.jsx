@@ -1,9 +1,15 @@
 import React from 'react';
-import '../assets/styles/components/Footer.scss'
+import '../assets/styles/components/Footer.scss';
+import classNames from 'classnames';
 
-const Footer = () => {
+const Footer = ({isHome}) => {
+  const footerClass = classNames('footer', {
+    isHome,
+
+  })
+  
     return (
-        <footer className="footer">
+        <footer className={footerClass}>
         <a href="/">Terminos de uso</a>
         <a href="/">Declaración de privacidad</a>
         <a href="/">Centro de ayuda</a>

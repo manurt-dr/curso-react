@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {loginRequest} from '../actions'
@@ -73,6 +74,7 @@ const Login = (props) => {
             </p>
           </section>
         </section>  
+        <Footer />
       </>  
     );
 }

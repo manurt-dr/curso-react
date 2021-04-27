@@ -2,6 +2,7 @@ import React from'react';
 import {connect} from 'react-redux';
 import Search from'../components/Search';
 import Header from '../components/Header';
+import Footer from '../components/Footer'
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem'
@@ -12,39 +13,40 @@ import'../assets/styles/App.scss';
 const Home = ( {myList, trends, originals} ) => {
   return (
     <>
-    <Header />
-      <Search isHome />
-      {
-        myList.length > 0 && (
-        <Categories title="Mi Lista">
+      <Header />
+        <Search isHome />
+        {
+          myList.length > 0 && (
+          <Categories title="Mi Lista">
+            <Carousel>
+              {
+                myList.map((item) => (<CarouselItem 
+                  key={`${item.id}`}
+                  {...item} 
+                  isList
+                  /> ))
+            }
+            </Carousel>
+          </Categories> 
+          )}
+
+        <Categories title="Tendencias">
           <Carousel>
             {
-              myList.map((item) => (<CarouselItem 
-                key={`${item.id}`}
-                {...item} 
-                isList
-                /> ))
-          }
+                trends.map(item => <CarouselItem key={item.id} {...item} /> )
+              }
+
           </Carousel>
-        </Categories> 
-        )}
-      
-      <Categories title="Tendencias">
-        <Carousel>
-          {
-              trends.map(item => <CarouselItem key={item.id} {...item} /> )
+        </Categories>
+            
+        <Categories title="originales de UnedVideo">
+          <Carousel>
+            {
+                originals.map(item => <CarouselItem key={item.id} {...item} /> )
             }
-              
-        </Carousel>
-      </Categories>
-      
-      <Categories title="originales de PlatziVideo">
-        <Carousel>
-          {
-              originals.map(item => <CarouselItem key={item.id} {...item} /> )
-          }
-        </Carousel>
-      </Categories>  
+          </Carousel>
+        </Categories>  
+      <Footer isHome />  
     </>
   );
 };

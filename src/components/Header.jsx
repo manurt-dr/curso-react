@@ -5,7 +5,7 @@ import gravatar from '../utils/gravatar';
 import {logOutRequest} from '../actions/index';
 import '../assets/styles/components/Header.scss';
 import {Link} from 'react-router-dom';
-import logo from '../assets/static/dragon-para-logo.png';
+import logo from '../assets/static/uned-logo-negro.png';
 import userIcon from  '../assets/static/user-icon.png';
 
 const Header = (props) => {
